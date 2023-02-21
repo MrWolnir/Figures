@@ -1,0 +1,36 @@
+from tkinter import *
+from random import *
+count = 0
+def cli():
+    canvas.delete("all")
+    a = randint(1, 3)
+
+    if a == 1:
+        canvas.create_polygon(randint(0,550), randint(0,350), randint(0,550), randint(0,350), randint(0,550), randint(0,350), fill = "black", outline="black")
+
+    elif a == 2:
+        size = randint(0, 350)
+        f = randint(0, 550-size)
+        ff = randint(0, 350 - size)
+        canvas.create_rectangle(f, ff,  f+size, ff+size, fill = "black", outline="black")
+
+    elif a == 3:
+        siz = randint(0, 350)
+        z = randint(0, 550 - siz)
+        zz = randint(0, 350 - siz)
+        canvas.create_oval(z, zz,  z+siz, zz+siz, fill = "black", outline="black")
+
+window = Tk()
+
+window.resizable(True, True)
+
+window.geometry('600x400')
+
+canvas = Canvas(window, width=550, height = 350, bg='white')
+
+button = Button(text="click", width = 10, height = 2, bg='cyan', command = cli)
+
+button.pack()
+canvas.pack()
+
+window.mainloop()
